@@ -42,6 +42,12 @@ string toRoman(int n)
 int main()
 {
     int n = 954;
-    cout << n << " = " << toRoman(n);
+    cout << n << " = " << toRoman(n) << "\n";
+    n = 2023;
+    cout << n << " = " << toRoman(n) << "\n";
+    n = 17;
+    cout << n << " = " << toRoman(n) << "\n";
+    n = 34;
+    cout << n << " = " << toRoman(n) << "\n";
     return 0;
 }
