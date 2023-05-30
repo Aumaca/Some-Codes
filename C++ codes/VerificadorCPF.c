@@ -47,12 +47,10 @@ void main() {
 		for (int count = 10, index = 0; cpfToUse != 0; count--, index++) {
 			int digit = cpfToUse / exponencial(10, count);
 			cpfArr[index] = digit;
-			if (index == 9) {
+			if (index == 9)
 				firstDig = digit;
-			}
-			if (index == 10) {
+			else if (index == 10)
 				secondDig = digit;
-			}
 			cpfToUse = cpfToUse % exponencial(10, count);
 		}
 		
