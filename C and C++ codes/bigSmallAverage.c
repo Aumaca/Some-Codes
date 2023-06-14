@@ -6,6 +6,8 @@ int main() {
     printf("How many values?: ");
     scanf("%i", &valuesNumber);
 
+    // Array size should be a constant value, but compiler support variable-length arrays (VLAs);
+    // Allocate memory at runtime, consequently have limitations.
     float data[valuesNumber];
 
     for (int i = 0; i < valuesNumber; i++) {
