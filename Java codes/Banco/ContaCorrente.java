@@ -2,7 +2,7 @@ package Banco;
 
 import java.util.Scanner;
 
-public abstract class ContaCorrente extends Conta {
+public class ContaCorrente extends Conta {
     Scanner scanner = new Scanner(System.in);
     public double credito = 0;
 
@@ -17,31 +17,36 @@ public abstract class ContaCorrente extends Conta {
         }
     }
 
+    public void consultarCredito() {
+        System.out.println("\nCrédito da conta: R$" + this.credito);
+    }
+
+    public void consultarLimite() {
+        double limiteAtual;
+        if (super.saldo < 0) {
+            limiteAtual = super.saldo - this.credito;
+        } else {
+            limiteAtual = this.credito;
+        }
+        System.out.println("\nLimite atual: R$" + limiteAtual);
+    }
+
     @Override
     public void sacar(double valor) {
-        System.out.println("Insira a senha: ");
-        String senha;
-        int tentativas = 1;
-
-        do {
-            System.out.println("Tentativa " + tentativas);
-            System.out.println("Insira a senha: ");
-            senha = scanner.nextLine();
-            tentativas++;
-        } while (senha != super.cliente.senha);
-
-        if (senha == super.cliente.senha) {
+        if (super.checarSenha()) {
             if (valor <= 0) {
-                System.out.println("Valor para saque inválido.");
+                System.out.println("\nValor para saque inválido.");
             } else if (super.saldo - valor > super.saldo + credito && credito == 0) {
-                System.out.println("Saldo insuficiente.");
+                System.out.println("\nSaldo insuficiente.");
             } else if (super.saldo - valor > super.saldo + credito && credito > 0) {
-                System.out.println("Saldo e crédito insuficiente.");
+                System.out.println("\nSaldo e crédito insuficiente.");
             } else {
                 super.saldo -= valor;
-                System.out.println("Saque feito com sucesso.");
+                System.out.println("\nSaque feito com sucesso.");
                 System.out.println("Saldo atual: R$" + super.saldo);
             }
+        } else {
+            System.out.println("Senha incorreta mais de 3 vezes.");
         }
     }
 }

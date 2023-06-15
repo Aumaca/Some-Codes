@@ -1,0 +1,9 @@
+ - This is a project to develop myself in Java.
+ - I'm planning to bring the idea to GUI anytime soon.
+ - Basically, we have a Checking Account and a Saving Accout.
+   The Checking Account has credit of 15% based on salary
+   (if only costumer is 18 years old or older than AND
+   earn salary greater than R$1000).
+ - The credit can be used withdrawing more than the actual 
+   account balance.
+ - I made this suddenly, so I will develop better later.
