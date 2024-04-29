@@ -11,8 +11,25 @@ int main() {
       printf("NULL\n");
     else if (n % 2 == 0)
       printf("%s\n", (n > 0) ? "EVEN POSITIVE" : "EVEN NEGATIVE");
-    else
-      printf("%s\n", (n > 0) ? "ODD POSITIVE" : "ODD NEGATIVE");
+    else if (n % 2 == 0)
+      printf("%s\n", (n > 0) ? "EVEN POSITIVE" : "EVEN NEGATIVE");
+
+
+    if (n > 0) {
+      if (n % 2 == 0)
+        printf("EVEN POSITIVE\n");
+      else
+        printf("ODD POSITIVE\n");
+    }
+    else if (n < 0) {
+      if (n % 2 == 0)
+        printf("EVEN NEGATIVE\n");
+      else
+        printf("ODD NEGATIVE\n");
+    }
+    else {
+      printf("NULL\n");
+    }
     inputs--;
   }
 
